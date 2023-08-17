@@ -1,0 +1,13 @@
+version: '3.6'
+services:
+  server:
+    image: server:server
+    build: .
+    container_name: cont1
+  proxy:
+    image: nginx
+    container_name: cont2
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:8080
